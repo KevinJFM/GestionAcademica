@@ -1,28 +1,29 @@
-<p>estudiantes works!</p>
+v
 <div class="container">
   <div class="d-flex justify-content-between mt-4">
-    <h4>Mantenimiento Estudiantes</h4>
+    <h4>Mantenimiento Grupos</h4>
     <button class="btn btn-success">Agregar</button>
   </div>
   <table class="table table-bordered mt-4">
     <thead>
       <tr>
         <th>ID</th>
-        <th>Nombres</th>
-        <th>Apellidos</th>
-        <th>Codigo</th>
-        <th>Email</th>
-        <th>Opciones</th>
+        <th>IDCarrera</th>
+        <th>IDMateria</th>
+        <th>IDProfesor</th>
+        <th>Grupo</th>
+        <th>anio</th>
       </tr>
     </thead>
     <tbody>
-      @for (item of lstEstudiantes; track index; let index = $index) {
+      @for (item of lstGrupos; track index; let index = $index) {
       <tr>
-        <td>{{ item.idEstudiante }}</td>
-        <td>{{ item.nombreEstudiante }}</td>
-        <td>{{ item.apellidoEstudiante }}</td>
-        <td>{{ item.codigoEstudiante }}</td>
-        <td>{{ item.correoEstudiante }}</td>
+        <td>{{ item.idGrupo }}</td>
+        <td>{{ item.idCarrera }}</td>
+        <td>{{ item.idMateria }}</td>
+        <td>{{ item.idProfesor }}</td>
+        <td>{{ item.cliclo }}</td>
+        <td>{{ item.anio }}</td>
         <td>
           <!-- Podemos enviar valores a metodos en el .ts de esta
   forma-->
@@ -36,3 +37,5 @@
     </tbody>
   </table>
 </div>
+
+
