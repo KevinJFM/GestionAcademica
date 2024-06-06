@@ -1,15 +1,38 @@
 import { Routes } from '@angular/router';
-import { CarrerasComponent } from './carrera/carrera.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
-import { GrupossComponent } from './grupos/grupos.component';
+import { AgregarEstudianteComponent } from './estudiantes/agregar-estudiante/agregar-estudiante.component';
+import { CarrerasComponent } from './carreras/carreras.component';
+import { AgregarCarreraComponent } from './carreras/agregar-carrera/agregar-carrera.component';
+import { GruposComponent } from './grupos/grupos.component';
+import { AgregarGrupoComponent } from './grupos/agregar-grupo/agregar-grupo.component';
 import { MateriasComponent } from './materias/materias.component';
-import { ProfesorsComponent } from './profesor/profesor.component';
+import { AgregarMateriaComponent } from './materias/agregar-materia/agregar-materia.component';
+import { ProfesoresComponent } from './profesores/profesores.component';
+import { AgregarProfesorComponent } from './profesores/agregar-profesor/agregar-profesor.component';
 
 export const routes: Routes = [
-  {path: 'Estudiantes', component: EstudiantesComponent, pathMatch: 'full'}, // Ruta por defecto
-  {path: 'Materias', component: MateriasComponent, pathMatch: 'full'}, // Ruta por defecto
-  {path: 'Carreras', component: CarrerasComponent, pathMatch: 'full'},
-  {path: 'Profesores', component: ProfesorsComponent, pathMatch: 'full'},
-  {path: 'Grupos', component: GrupossComponent, pathMatch: 'full'},
-  {path: '**', redirectTo: '', pathMatch: 'full'} // Rutas no existentes
+{path: '', component: EstudiantesComponent, pathMatch: 'full'}, // Ruta por defecto
+{ path:'agregarEstudiante', component: AgregarEstudianteComponent}, 
+    { path:'agregarEstudiante/:idEstudiante', component: AgregarEstudianteComponent}, 
+    //{path: '**', redirectTo: '', pathMatch: 'full'}, // Rutas no existentes 
+
+{path: '', component: CarrerasComponent, pathMatch: 'full'}, // Ruta por defecto
+{ path:'agregarCarrera', component: AgregarCarreraComponent}, 
+    { path:'agregarCarrera/:id', component: AgregarCarreraComponent}, 
+    //{path: '**', redirectTo: '', pathMatch: 'full'}, // Rutas no existentes 
+
+{path: '', component: GruposComponent, pathMatch: 'full'}, // Ruta por defecto
+{ path:'agregarGrupo', component: AgregarGrupoComponent}, 
+    { path:'agregarGrupo/:idGrupo', component: AgregarGrupoComponent}, 
+    //{path: '**', redirectTo: '', pathMatch: 'full'}, // Rutas no existentes 
+
+{path: '', component: MateriasComponent, pathMatch: 'full'}, // Ruta por defecto
+{ path:'agregarMateria', component: AgregarMateriaComponent}, 
+    { path:'agregarMateria/:idMateria', component: AgregarMateriaComponent}, 
+    //{path: '**', redirectTo: '', pathMatch: 'full'}, // Rutas no existentes 
+
+{path: '', component: ProfesoresComponent, pathMatch: 'full'}, // Ruta por defecto
+{ path:'agregarProfesor', component: AgregarProfesorComponent}, 
+    { path:'agregarProfesor/:idProfesor', component: AgregarProfesorComponent} 
+    //{path: '**', redirectTo: '', pathMatch: 'full'}, // Rutas no existentes 
 ];

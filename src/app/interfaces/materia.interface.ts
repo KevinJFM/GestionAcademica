@@ -1,4 +1,4 @@
-export interface Materia {
-  idMateria: number;
-  nombreMateria: string;
+export interface Materia{
+    idMateria: number;
+    nombreMateria: string;
 }

@@ -1,37 +1,38 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { MateriasService } from '../services/materias.service';
+import { CarrerasService } from '../services/carreras.service';
 import { CommonModule } from '@angular/common';
-import { Materia } from '../interfaces/materia.interface';
+import { Carrera } from '../interfaces/carrera.interface';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { parsearErroresAPI } from '../utils/Utilities';
 
 @Component({
-  selector: 'app-materias',
+  selector: 'app-carreras',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './materias.component.html',
-  styleUrl: './materias.component.scss'
+  templateUrl: './carreras.component.html',
+  styleUrl: './carreras.component.scss'
 })
-export class MateriasComponent implements OnInit{
+export class CarrerasComponent implements OnInit {
   // Haciendo inyeccion de dependencia
-  private readonly maateriasService = inject(MateriasService);
+  private readonly carrerasService = inject(CarrerasService);
   private readonly router = inject(Router);
-  public lstMaterias: Materia[];
+  public lstCarreras: Carrera[];
 
   constructor(){
-    this.lstMaterias = [];
+    this.lstCarreras = [];
   }
-  
+
   ngOnInit(): void {
-    this.getAllSubjects();
+    this.getAllCareers();
   }
-  getAllSubjects(){
-    this.maateriasService.obtenerMaterias().subscribe({
+    
+  getAllCareers(){
+    this.carrerasService.obtenerCarreras().subscribe({
       // Se evalua que la respuesta del endpoint sea exitosa
       next: (temp) => {
       // Se asigna la lista al arreglo anteriormente descrito
-      this.lstMaterias = temp;
+      this.lstCarreras = temp;
       },
       // En caso de error
       error: (err) => {
@@ -39,11 +40,12 @@ export class MateriasComponent implements OnInit{
       }
     })
   }
+
 navigateToForm(){ 
-this.router.navigate(['/agregarMateria']); 
+this.router.navigate(['/agregarCarrera']); 
 } 
 
-deleteMateria(event: any){ 
+deleteCarrera(event: any){ 
 Swal.fire({ 
   title: "¿Quiere eliminar este registro?", 
   text: "Esta acción no se puede revertir", 
@@ -56,12 +58,12 @@ Swal.fire({
   showLoaderOnConfirm: true 
 }).then((result) => { 
   if (result.isConfirmed){ 
-    this.maateriasService.eliminarMateria(event.target.value).subscribe({ 
+    this.carrerasService.eliminarCarrera(event.target.value).subscribe({ 
       // En caso exitoso 
       next: (temp) => { 
         Swal.fire("Eliminado","Registro eliminado con exito","success"); 
         
-        this.getAllSubjects(); 
+        this.getAllCareers(); 
       }, 
       // En caso erroneo 
       error: (err) => { 
@@ -76,9 +78,9 @@ Swal.fire({
 }); 
 } 
 
-updateMateria(valor: number){  
+updateCarrera(valor: number){  
   if(valor){ 
-    this.router.navigate(['/agregarMateria', valor]); 
+    this.router.navigate(['/agregarCarrera', valor]); 
   } 
 } 
 }

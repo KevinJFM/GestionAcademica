@@ -1,7 +1,7 @@
 export interface Estudiante{
-  idEstudiante: number;
-  nombreEstudiante: string;
-  apellidoEstudiante: string;
-  codigoEstudiante: string;
-  correoEstudiante: string;
-  }
+    idEstudiante: number;
+    nombresEstudiante: string;
+    apellidosEstudiante: string;
+    codigoEstudiante: string;
+    correoEstudiante: string;
+}
