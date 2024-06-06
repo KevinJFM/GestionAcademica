@@ -1,13 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+<<<<<<< HEAD
 import { endpoints } from '../utils/endpoints';
 import { Grupo } from '../interfaces/grupo.interface';
+=======
+import { Observable } from 'rxjs';
+import { endpoints } from '../utils/endpoints';
+
+>>>>>>> 93cd1803990674682260727c90bf4bcb973ca5ab
 
 @Injectable({
   providedIn: 'root'
 })
 export class GruposService {
 
+<<<<<<< HEAD
   private readonly http = inject(HttpClient); 
  
   constructor() { } 
@@ -47,5 +54,12 @@ export class GruposService {
         "anio": grupo.anio
       } 
       return this.http.put<number>(endpoints.actualizarGrupo.replace(':idGrupo',idGrupo.toString()), body); 
+=======
+  private readonly http = inject(HttpClient);
+  constructor() { }
+
+  obtenerGrupos(): Observable<any> {
+    return this.http.get(endpoints.obtenerGrupos);
+>>>>>>> 93cd1803990674682260727c90bf4bcb973ca5ab
   }
 }
